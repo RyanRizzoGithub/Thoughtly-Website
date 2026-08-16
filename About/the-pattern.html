@@ -1,0 +1,199 @@
+
+<style>
+  .tly-story {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    border-bottom: 1px solid #E9DAC1;
+    background: #F8F7F4;
+    font-family: 'DM Sans', Calibri, system-ui, sans-serif;
+  }
+
+  .tly-story__sidebar {
+    padding: 5rem 3rem 5rem 4rem;
+    border-right: 1px solid #E9DAC1;
+    background: #F0EBE1;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .tly-story__label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7485A4;
+    margin: 0;
+  }
+
+  .tly-story__pull {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #3D403C;
+    font-style: italic;
+    border-left: 2px solid #7485A4;
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .tly-story__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tly-story__list li {
+    font-size: 0.875rem;
+    color: #5a5e56;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #E9DAC1;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .tly-story__list li:last-child {
+    border-bottom: none;
+  }
+
+  .tly-story__body {
+    padding: 5rem 5rem 5rem 4rem;
+  }
+
+  .tly-story__body p {
+    color: #3D403C;
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .tly-story__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tly-story__body em {
+    font-style: italic;
+  }
+
+  .tly-story__h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: #3D403C;
+    margin: 3rem 0 1.25rem;
+    line-height: 1.35;
+  }
+
+  .tly-story__h2:first-child {
+    margin-top: 0;
+  }
+
+  /* ── TABLET (≤900px): sidebar moves above body, full width ── */
+  @media (max-width: 900px) {
+    .tly-story {
+      grid-template-columns: 1fr;
+    }
+
+    .tly-story__sidebar {
+      padding: 3rem 2rem;
+      border-right: none;
+      border-bottom: 1px solid #E9DAC1;
+      gap: 2rem;
+      /* Collapse the pull quote + list into a two-column grid on tablet */
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      align-items: start;
+    }
+
+    /* "The pattern" label spans only its column */
+    .tly-story__sidebar .tly-story__label:first-child {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .tly-story__pull {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    /* "What I did instead" label */
+    .tly-story__sidebar .tly-story__label:last-of-type {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .tly-story__list {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .tly-story__body {
+      padding: 3rem 2rem;
+    }
+
+    .tly-story__h2 {
+      margin: 2rem 0 1rem;
+    }
+  }
+
+  /* ── MOBILE (≤600px): fully stacked, single column ── */
+  @media (max-width: 600px) {
+    .tly-story__sidebar {
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem 1.25rem;
+      gap: 1.75rem;
+    }
+
+    .tly-story__pull {
+      font-size: 1rem;
+    }
+
+    .tly-story__body {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .tly-story__body p {
+      font-size: 0.95rem;
+    }
+
+    .tly-story__h2 {
+      font-size: 1.2rem;
+      margin: 2rem 0 0.85rem;
+    }
+
+    .tly-story__h2:first-child {
+      margin-top: 0;
+    }
+  }
+</style>
+
+<section class="tly-story">
+  <aside class="tly-story__sidebar">
+    <p class="tly-story__label">The pattern</p>
+    <blockquote class="tly-story__pull">
+      "I could see what wasn't working, but I didn't know how to address it without becoming difficult."
+    </blockquote>
+    <p class="tly-story__label">What I did instead</p>
+    <ul class="tly-story__list">
+      <li>Carried more</li>
+      <li>Anticipated others' needs</li>
+      <li>Smoothed things over</li>
+      <li>Stayed reasonable, capable, and composed</li>
+      <li>Never asked for what I wanted</li>
+    </ul>
+  </aside>
+
+  <div class="tly-story__body">
+    <h2 class="tly-story__h2"><strong>Something subtle crept in.</strong></h2>
+    <p>Frustration. Resentment. A quiet sense that I was over-functioning while others under-contributed. Logic didn't help. Working harder didn't help. Being more accommodating definitely didn't help.</p>
+
+    <h2 class="tly-story__h2"><strong>That was my turning point.</strong></h2>
+    <p>I began to see that the issue wasn't confidence in my abilities. It was confidence in my <em>right to have wants, needs, and preferences at all.</em> I wasn't failing at leadership. I was disappearing inside it.</p>
+    <p>So I stopped trying to be better at self-sacrifice and started learning self-advocacy.</p>
+    <p>I trained with executive coaches, studied human behavior, power dynamics, and emotional intelligence. I began to understand why so many capable leaders default to carrying instead of collaborating. Why we confuse responsibility with over-responsibility. Why asking feels risky. And why resentment is often the cost of unspoken wants.</p>
+  </div>
+</section>
