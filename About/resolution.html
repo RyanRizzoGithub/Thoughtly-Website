@@ -1,0 +1,196 @@
+<style>
+  .tly-today {
+    display: grid;
+    grid-template-columns: 420px 1fr 300px;
+    border-bottom: 1px solid #E9DAC1;
+    background: #F0EBE1;
+    font-family: 'DM Sans', Calibri, system-ui, sans-serif;
+    min-height: 600px;
+  }
+
+  .tly-today__image {
+    position: relative;
+    overflow: hidden;
+    background: #3D403C;
+  }
+
+  .tly-today__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  .tly-today__body {
+    padding: 5rem 4rem;
+    border-right: 1px solid #E9DAC1;
+    border-left: 1px solid #E9DAC1;
+  }
+
+  .tly-today__body h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #3D403C;
+    margin: 0 0 1.5rem;
+    line-height: 1.35;
+  }
+
+  .tly-today__body p {
+    font-size: 1rem;
+    color: #3D403C;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .tly-today__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .tly-today__quote {
+    border-left: 2px solid #7485A4;
+    padding-left: 1.5rem;
+    margin: 2.5rem 0;
+  }
+
+  .tly-today__quote p {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #3D403C;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .tly-today__sidebar {
+    padding: 5rem 3rem 5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tly-today__sidebar-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7485A4;
+    margin: 0 0 1.5rem;
+  }
+
+  .tly-serve-item {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #E9DAC1;
+  }
+
+  .tly-serve-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .tly-serve-item strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7485A4;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .tly-serve-item p {
+    font-size: 0.9rem;
+    color: #5a5e56;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .tly-today {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "image image"
+        "body sidebar";
+    }
+    .tly-today__image {
+      grid-area: image;
+      height: 50vw;
+      max-height: 480px;
+    }
+    .tly-today__body {
+      grid-area: body;
+      border-left: none;
+    }
+    .tly-today__sidebar {
+      grid-area: sidebar;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tly-today {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "image"
+        "body"
+        "sidebar";
+    }
+    .tly-today__image {
+      height: 70vw;
+      max-height: 400px;
+    }
+    .tly-today__body {
+      padding: 3rem 1.5rem;
+      border-right: none;
+      border-bottom: 1px solid #E9DAC1;
+    }
+    .tly-today__sidebar {
+      padding: 3rem 1.5rem;
+    }
+  }
+</style>
+
+<div class="tly-today">
+  <div class="tly-today__image">
+    <!-- Replace with your Kajabi-uploaded image URL if needed -->
+    <img
+      src="https://github.com/RyanRizzoGithub/thoughtly-assets/blob/main/images/marion/DSC_2019.jpg?raw=true"
+      alt="Allison Garner speaking on stage"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="tly-today__body">
+    <h2>Today, this is the work I do.</h2>
+    <p>As the founder of Thoughtly, I help high-functioning, self-sacrificing leaders move from quiet endurance to clear self-advocacy without becoming abrasive, entitled, or disconnected from others.</p>
+    <p>My clients are presidents, founders, and senior leaders who care deeply, take ownership seriously, and are tired of being the one who always gives more.</p>
+    <p>Through a practical, research-informed framework and the Authentic Confidence Experience Assessment, we uncover the patterns driving self-sacrifice, map what authentic confidence actually looks like, and build the capacity to say:</p>
+
+    <div class="tly-today__quote">
+      <p>
+        This is what I want.<br>
+        This is what I need.<br>
+        And I'm willing to work toward it with you.
+      </p>
+    </div>
+
+    <p>If you're ready to stop carrying everything alone and start leading from a place that's sustainable, honest, and shared, Thoughtly is a place to begin.</p>
+  </div>
+
+  <aside class="tly-today__sidebar">
+    <p class="tly-today__sidebar-label">Who Thoughtly serves</p>
+    <div class="tly-serve-item">
+      <strong>Who they are</strong>
+      <p>Capable, driven leaders who've gotten far by doing it all themselves.</p>
+    </div>
+    <div class="tly-serve-item">
+      <strong>Where they are</strong>
+      <p>At the edge of what self-reliance can achieve and ready to grow differently.</p>
+    </div>
+    <div class="tly-serve-item">
+      <strong>What they carry</strong>
+      <p>Quiet endurance. High responsibility. Unspoken wants.</p>
+    </div>
+  </aside>
+</div>
