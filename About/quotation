@@ -1,0 +1,45 @@
+
+<style>
+  .tly-turning {
+    background: #3D403C;
+    padding: 6rem 4rem;
+    text-align: center;
+    border-bottom: 1px solid #E9DAC1;
+    font-family: 'DM Sans', Calibri, system-ui, sans-serif;
+  }
+
+  .tly-turning__quote {
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+    line-height: 1.5;
+    font-weight: 400;
+    font-style: italic;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: #E9DAC1;
+  }
+
+  .tly-turning__cite {
+    font-family: 'DM Sans', Calibri, system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7485A4;
+    font-style: normal;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .tly-turning {
+      padding: 4rem 1.5rem;
+    }
+  }
+</style>
+
+<div class="tly-turning">
+  <blockquote class="tly-turning__quote">
+    "Leadership is not about choosing between yourself and others. It's about learning how to give both consideration and self-advocacy so everyone can breathe."
+  </blockquote>
+  <cite class="tly-turning__cite">— Allison Garner, Founder of Thoughtly</cite>
+</div>
