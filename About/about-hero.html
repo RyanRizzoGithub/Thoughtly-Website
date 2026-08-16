@@ -1,0 +1,157 @@
+<style>
+  .tly-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 95vh;
+    background: #F8F7F4;
+    border-bottom: 1px solid #E9DAC1;
+    font-family: 'DM Sans', Calibri, system-ui, sans-serif;
+  }
+
+  .tly-hero__text {
+    padding: 6rem 4rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid #E9DAC1;
+    overflow: hidden;
+  }
+
+  .tly-hero__eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7485A4;
+    margin-bottom: 2rem;
+    margin-top: 0;
+  }
+
+  .tly-hero__heading {
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(1.75rem, 2.5vw, 3rem);
+    line-height: 1.25;
+    color: #3D403C;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    margin-top: 0;
+  }
+
+  .tly-hero__heading em {
+    font-style: italic;
+    color: #7485A4;
+  }
+
+  .tly-hero__sub {
+    font-size: 1rem;
+    color: #5a5e56;
+    max-width: 420px;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .tly-hero__image {
+    position: relative;
+    overflow: hidden;
+    background: #E9DAC1;
+  }
+
+  .tly-hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  .tly-hero__caption {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    font-size: 0.75rem;
+    color: #F8F7F4;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  /* ── TABLET (≤900px): stack text over image, image is fixed height ── */
+  @media (max-width: 900px) {
+    .tly-hero {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 50vw;
+      height: auto;
+    }
+
+    .tly-hero__text {
+      padding: 4rem 3rem;
+      border-right: none;
+      border-bottom: 1px solid #E9DAC1;
+    }
+
+    .tly-hero__heading {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: 1.75rem;
+    }
+
+    .tly-hero__image {
+      min-height: unset; /* let grid-template-rows control height */
+    }
+    
+    .tly-hero__image img {
+      object-position: center calc(50% + 100px);
+    }
+  }
+
+  /* ── MOBILE (≤600px): tighten padding, shrink image ── */
+  @media (max-width: 600px) {
+    .tly-hero {
+      grid-template-rows: auto 72vw;
+    }
+
+    .tly-hero__text {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .tly-hero__eyebrow {
+      margin-bottom: 1.25rem;
+    }
+
+    .tly-hero__heading {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+      margin-bottom: 1.25rem;
+    }
+
+    .tly-hero__sub {
+      font-size: 0.95rem;
+    }
+
+    .tly-hero__caption {
+      bottom: 1rem;
+      left: 1.25rem;
+      font-size: 0.7rem;
+    }
+    .tly-hero__image img {
+      object-position: center center;
+    }
+  }
+</style>
+
+<div class="tly-hero">
+  <div class="tly-hero__text">
+    <p class="tly-hero__eyebrow">About Allison Garner</p>
+    <h1 class="tly-hero__heading">
+      I used to believe that if I were competent enough, things would work out.
+    </h1>
+    <p class="tly-hero__sub">
+      For years, that strategy paid off. Two decades in the global oil industry, a chemical engineer, vice president, the person trusted to carry responsibility when things got messy.
+    </p>
+  </div>
+  <div class="tly-hero__image">
+    <img
+      src="https://github.com/RyanRizzoGithub/thoughtly-assets/blob/main/images/studio/2024-04%20Allison%20Thoughtly4827.jpg?raw=true"
+      alt="Allison Garner, founder of Thoughtly"
+    />
+  </div>
+</div>
