@@ -1,0 +1,426 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  /* ══════════════════════════════════════════════════════════════
+     THOUGHTLY PROGRAMS — v2 (editorial redesign)
+     Scoped to #tly-programs. Kajabi-safe (tlp- namespaced).
+  ══════════════════════════════════════════════════════════════ */
+  #tly-programs {
+    --parchment:  #F8F7F4;
+    --paper:      #FCFBF9;
+    --forest:     #3D403C;
+    --forest-deep:#2B2E2A;
+    --slate:      #7485A4;
+    --sand:       #E9DAC1;
+    --sand-light: #F1ECE2;
+    --muted:      #5a5e56;
+    --line:       rgba(61,64,60,0.13);
+    --line-light: rgba(248,247,244,0.16);
+    --mist:       #EAECF1;
+    --fs-display: clamp(2.5rem, 5.4vw, 4.25rem);
+    --fs-heading: clamp(1.7rem, 2.9vw, 2.35rem);
+    --fs-title:   clamp(1.2rem, 1.6vw, 1.45rem);
+    --fs-body:    1.0625rem;
+    --fs-small:   0.82rem;
+    --serif: 'Lora', Georgia, serif;
+    --sans:  'DM Sans', Calibri, system-ui, sans-serif;
+
+    background: var(--parchment);
+    color: var(--forest);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+  }
+  #tly-programs *, #tly-programs *::before, #tly-programs *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  #tly-programs ::selection { background: var(--sand); color: var(--forest); }
+
+  /* ── SHARED ───────────────────────────────────────────────── */
+  #tly-programs .tlp-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--slate);
+  }
+  #tly-programs .tlp-container { max-width: 1180px; margin: 0 auto; padding: 0 48px; }
+
+  /* editorial asymmetric section: the section head becomes a left rail, body on the right */
+  #tly-programs .tlp-section--split .tlp-container { display: grid; grid-template-columns: 4fr 7fr; gap: 8px 80px; align-items: start; }
+  #tly-programs .tlp-section--split .tlp-section-head { margin-bottom: 0; max-width: 380px; }
+  #tly-programs .tlp-section--split .tlp-topic-note { grid-column: 2 / -1; margin-top: 8px; }
+
+  #tly-programs .tlp-prose { max-width: 62ch; }
+  #tly-programs .tlp-prose p { color: var(--muted); font-size: var(--fs-body); margin-bottom: 1.35rem; }
+  #tly-programs .tlp-prose p:last-child { margin-bottom: 0; }
+  /* the lead paragraph is a larger opener but shares the same measure as the body below it */
+  #tly-programs .tlp-lede {
+    font-family: var(--serif); font-style: normal; font-weight: 500;
+    font-size: var(--fs-title); line-height: 1.4; letter-spacing: -0.01em;
+    color: var(--forest);
+  }
+
+  /* ── BUTTONS ──────────────────────────────────────────────── */
+  #tly-programs .tlp-btn, #tly-programs .tlp-btn-light {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--sans); font-size: var(--fs-small); font-weight: 500; letter-spacing: 0.01em;
+    padding: 15px 30px; border-radius: 2px; text-decoration: none; cursor: pointer;
+    transition: background 0.25s, color 0.25s, transform 0.25s;
+  }
+  #tly-programs .tlp-btn { background: var(--forest); color: #fff; border: 1px solid var(--forest); }
+  #tly-programs .tlp-btn:hover { background: var(--forest-deep); border-color: var(--forest-deep); transform: translateY(-2px); }
+  #tly-programs .tlp-btn-light { background: var(--sand); color: var(--forest); border: 1px solid var(--sand); }
+  #tly-programs .tlp-btn-light:hover { background: #fff; border-color: #fff; transform: translateY(-2px); }
+
+  /* ── HERO (full-bleed image, editorial overlay) ───────────── */
+  #tly-programs .tlp-hero {
+    position: relative; min-height: 78vh; max-height: 820px;
+    display: flex; align-items: flex-end; overflow: hidden; background: var(--forest-deep);
+  }
+  #tly-programs .tlp-hero__img { position: absolute; inset: 0; }
+  #tly-programs .tlp-hero__img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+  #tly-programs .tlp-hero__img::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(to top, rgba(30,32,28,0.90) 0%, rgba(30,32,28,0.55) 36%, rgba(30,32,28,0.14) 70%, rgba(30,32,28,0.30) 100%),
+      linear-gradient(120deg, rgba(61,64,60,0.30), rgba(116,133,164,0.10));
+  }
+  #tly-programs .tlp-hero__inner { position: relative; z-index: 2; width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 48px 88px; }
+  #tly-programs .tlp-hero__eyebrow { color: var(--sand); display: inline-block; margin-bottom: 26px; opacity: 0.92; }
+  #tly-programs .tlp-hero h1 {
+    font-family: var(--serif); font-weight: 500; color: var(--parchment);
+    font-size: var(--fs-display); line-height: 1.02; letter-spacing: -0.028em;
+    max-width: 20ch; text-wrap: balance;
+  }
+  #tly-programs .tlp-hero__tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+  #tly-programs .tlp-hero__tags span {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--parchment); border: 1px solid var(--line-light); padding: 7px 15px; border-radius: 2px;
+    backdrop-filter: blur(2px);
+  }
+  #tly-programs .tlp-hero__tags span.tlp-tag--solid { background: var(--slate); border-color: var(--slate); }
+
+  /* ── SECTION ──────────────────────────────────────────────── */
+  #tly-programs .tlp-section { padding: 104px 0; }
+  #tly-programs .tlp-section--tight { padding: 64px 0; }
+  #tly-programs .tlp-section--sand { background: var(--sand-light); }
+  #tly-programs .tlp-section--mist { background: var(--mist); }
+  #tly-programs .tlp-section--paper { background: var(--paper); }
+  #tly-programs .tlp-section-head { max-width: 640px; margin-bottom: 56px; }
+  #tly-programs .tlp-section-head::before {
+    content: ''; display: block; width: 40px; height: 2px; background: var(--slate); margin-bottom: 26px; opacity: 0.7;
+  }
+  #tly-programs .tlp-section-head .tlp-eyebrow { display: block; margin-bottom: 18px; }
+  #tly-programs .tlp-section-head h3 {
+    font-family: var(--serif); font-weight: 500; font-size: var(--fs-heading);
+    line-height: 1.12; letter-spacing: -0.02em; color: var(--forest);
+  }
+  #tly-programs .tlp-section-head .tlp-kicker {
+    font-family: var(--serif); font-weight: 500; color: var(--forest);
+    font-size: var(--fs-heading); line-height: 1.3; letter-spacing: -0.01em;
+  }
+
+  /* ── MEDIA (kept for any inline image use) ────────────────── */
+  #tly-programs .tlp-media { position: relative; aspect-ratio: 16 / 10; border-radius: 3px; overflow: hidden; background: var(--sand-light); }
+  #tly-programs .tlp-media__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; object-position: top; }
+  #tly-programs .tlp-media__hint { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 28px; gap: 10px; }
+  #tly-programs .tlp-media__hint-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); }
+  #tly-programs .tlp-media__hint p { color: var(--muted); font-size: var(--fs-small); line-height: 1.6; max-width: 540px; }
+  #tly-programs .tlp-media.tlp-has-img .tlp-media__hint { display: none; }
+
+  /* ── FEATURE (measurable) — borderless split ──────────────── */
+  #tly-programs .tlp-feature { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 0; border-radius: 4px; overflow: hidden; }
+  #tly-programs .tlp-feature__body { padding: 8px 64px 8px 0; }
+  #tly-programs .tlp-feature__body p { color: var(--muted); font-size: var(--fs-body); margin-bottom: 1.2rem; }
+  #tly-programs .tlp-feature__body p:last-child { margin-bottom: 0; }
+  #tly-programs .tlp-feature__aside { background: var(--forest); border-radius: 4px; padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
+  #tly-programs .tlp-feature__stat { font-family: var(--serif); font-weight: 500; font-size: var(--fs-display); color: var(--parchment); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 10px; }
+  #tly-programs .tlp-feature__stat-label { color: var(--sand); opacity: 0.75; font-size: var(--fs-small); margin-bottom: 30px; }
+  #tly-programs .tlp-feature__rule { width: 40px; height: 2px; background: var(--slate); margin-bottom: 26px; }
+  #tly-programs .tlp-feature__note { color: var(--parchment); opacity: 0.8; font-size: var(--fs-small); line-height: 1.7; }
+  #tly-programs .tlp-feature__badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sand); opacity: 0.8; margin-bottom: 22px; }
+
+  /* ── BECOME LIST — borderless editorial ───────────────────── */
+  #tly-programs .tlp-become-list { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 72px; }
+  #tly-programs .tlp-become-item { padding: 34px 0; border-top: 1px solid var(--line); }
+  #tly-programs .tlp-become-item__mark { font-family: var(--serif); font-style: italic; color: var(--slate); font-size: var(--fs-small); display: block; margin-bottom: 16px; }
+  #tly-programs .tlp-become-item p { color: var(--muted); font-size: var(--fs-body); line-height: 1.7; }
+  #tly-programs .tlp-become-item p strong { color: var(--forest); font-weight: 600; }
+
+  /* ── NUMBERED ROWS ────────────────────────────────────────── */
+  #tly-programs .tlp-rows { border-top: 1px solid var(--line); }
+  #tly-programs .tlp-row { display: grid; grid-template-columns: 88px 1fr; gap: 40px; padding: 44px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  #tly-programs .tlp-row__num { font-family: var(--serif); font-style: italic; font-size: 2rem; color: var(--slate); line-height: 1; }
+  #tly-programs .tlp-row__title { font-family: var(--serif); font-weight: 500; font-size: var(--fs-title); color: var(--forest); margin-bottom: 12px; line-height: 1.2; letter-spacing: -0.01em; }
+  #tly-programs .tlp-row__title .tlp-soon { font-family: var(--sans); font-style: normal; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); border: 1px solid var(--slate); border-radius: 2px; padding: 3px 9px; margin-left: 14px; vertical-align: middle; }
+  #tly-programs .tlp-row__body { color: var(--muted); font-size: var(--fs-body); max-width: 62ch; }
+
+  /* ── STEP CARDS — light, borderless ───────────────────────── */
+  #tly-programs .tlp-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+  #tly-programs .tlp-step-card { padding: 8px 56px 8px 0; display: flex; flex-direction: column; }
+  #tly-programs .tlp-step-card + .tlp-step-card { padding-left: 56px; border-left: 1px solid var(--line); padding-right: 0; }
+  #tly-programs .tlp-step-card__step { font-family: var(--serif); font-style: italic; color: var(--slate); font-size: var(--fs-small); margin-bottom: 18px; }
+  #tly-programs .tlp-step-card h4 { font-family: var(--serif); font-weight: 500; font-size: var(--fs-title); color: var(--forest); margin-bottom: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+  #tly-programs .tlp-step-card p { color: var(--muted); font-size: var(--fs-body); margin-bottom: 1.1rem; }
+  #tly-programs .tlp-step-card p:last-of-type { margin-bottom: 1.9rem; }
+  #tly-programs .tlp-step-card .tlp-btn { margin-top: auto; align-self: flex-start; }
+  #tly-programs .tlp-step-card__meta { font-size: var(--fs-small); font-style: italic; font-family: var(--serif); color: var(--slate); margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+  /* ── PULLQUOTE ────────────────────────────────────────────── */
+  #tly-programs .tlp-pull-strip { padding: 0; }
+  #tly-programs .tlp-pull-strip p { font-family: var(--serif); font-weight: 500; font-size: var(--fs-heading); color: var(--forest); line-height: 1.28; letter-spacing: -0.02em; max-width: 20ch; }
+
+  /* ── PROOF STATS — big, borderless ────────────────────────── */
+  #tly-programs .tlp-stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  #tly-programs .tlp-stat-cell { padding: 8px 40px; text-align: left; border-left: 1px solid var(--line); }
+  #tly-programs .tlp-stat-cell:first-child { border-left: none; padding-left: 0; }
+  #tly-programs .tlp-stat-cell__big { font-family: var(--serif); font-weight: 500; font-size: var(--fs-display); color: var(--forest); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 16px; }
+  #tly-programs .tlp-stat-cell__big .tlp-arrow { color: var(--slate); font-size: 0.55em; vertical-align: middle; margin: 0 8px; }
+  #tly-programs .tlp-stat-cell__label { font-size: var(--fs-small); color: var(--muted); line-height: 1.55; max-width: 26ch; }
+  #tly-programs .tlp-plan-list { margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; }
+  #tly-programs .tlp-plan-item { padding: 20px 0; border-top: 1px solid var(--line); font-style: italic; font-family: var(--serif); color: var(--forest); font-size: var(--fs-body); display: flex; gap: 14px; align-items: baseline; }
+  #tly-programs .tlp-plan-item::before { content: '\201C'; color: var(--slate); font-family: var(--serif); font-size: 1.8rem; line-height: 0; position: relative; top: 10px; }
+
+  /* ── QUOTES — borderless, editorial ───────────────────────── */
+  #tly-programs .tlp-quote-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+  #tly-programs .tlp-quote-card { display: flex; flex-direction: column; border-top: 2px solid var(--forest); padding-top: 28px; }
+  #tly-programs .tlp-quote-card__mark { display: none; }
+  #tly-programs .tlp-quote-card__text { font-family: var(--serif); font-weight: 400; color: var(--forest); font-size: var(--fs-body); line-height: 1.5; letter-spacing: -0.01em; margin-bottom: 26px; flex: 1; }
+  #tly-programs .tlp-quote-card__by { font-size: var(--fs-small); color: var(--slate); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.6; margin-top: auto; }
+  #tly-programs .tlp-quote-card__by strong { color: var(--forest); font-weight: 600; display: block; letter-spacing: 0.02em; }
+
+  /* ── FORMAT CARDS — top-accent, borderless ────────────────── */
+  #tly-programs .tlp-format-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+  #tly-programs .tlp-format-card { display: flex; flex-direction: column; border-top: 1px solid var(--line); padding-top: 30px; }
+  #tly-programs .tlp-format-card__tag { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--slate); margin-bottom: 20px; }
+  #tly-programs .tlp-format-card h4 { font-family: var(--serif); font-weight: 500; font-size: var(--fs-title); color: var(--forest); margin-bottom: 16px; line-height: 1.18; letter-spacing: -0.01em; }
+  #tly-programs .tlp-format-card p { color: var(--muted); font-size: var(--fs-body); }
+
+  /* ── TOPICS — borderless ──────────────────────────────────── */
+  #tly-programs .tlp-topic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 72px; }
+  #tly-programs .tlp-topic { padding: 30px 0; display: flex; gap: 22px; align-items: baseline; border-top: 1px solid var(--line); }
+  #tly-programs .tlp-topic__num { font-family: var(--serif); font-style: italic; color: var(--slate); font-size: var(--fs-body); min-width: 26px; }
+  #tly-programs .tlp-topic__text { color: var(--forest); font-family: var(--serif); font-size: var(--fs-title); line-height: 1.25; letter-spacing: -0.01em; }
+  #tly-programs .tlp-topic__text span { display: block; font-family: var(--sans); color: var(--muted); font-size: var(--fs-body); line-height: 1.5; margin-top: 8px; letter-spacing: 0; }
+  #tly-programs .tlp-topic-note { margin-top: 40px; color: var(--muted); font-size: var(--fs-body); }
+  #tly-programs .tlp-topic-note a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--slate); }
+
+  /* ── CTA BLOCK (full-bleed forest moment) ─────────────────── */
+  #tly-programs .tlp-cta { background: var(--forest); border-radius: 4px; padding: 96px 48px; text-align: center; }
+  #tly-programs .tlp-cta .tlp-eyebrow { color: var(--sand); opacity: 0.8; display: inline-block; margin-bottom: 22px; }
+  #tly-programs .tlp-cta h3 { font-family: var(--serif); font-weight: 500; color: var(--parchment); font-size: var(--fs-heading); line-height: 1.14; letter-spacing: -0.02em; max-width: 18ch; margin: 0 auto 1.4rem; }
+  #tly-programs .tlp-cta p { color: var(--parchment); opacity: 0.72; max-width: 52ch; margin: 0 auto 2.5rem; font-size: var(--fs-body); }
+
+  /* ── BOOK CTA (contact) ───────────────────────────────────── */
+  #tly-programs .tlp-book { max-width: 640px; text-align: left; }
+  #tly-programs .tlp-book .tlp-eyebrow { display: block; margin-bottom: 18px; }
+  #tly-programs .tlp-book h3 { font-family: var(--serif); font-weight: 500; font-size: var(--fs-heading); line-height: 1.14; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 20px; }
+  #tly-programs .tlp-book p { color: var(--muted); font-size: var(--fs-body); margin-bottom: 34px; }
+  #tly-programs .tlp-book .tlp-form-note { font-size: var(--fs-small); font-style: italic; font-family: var(--serif); color: var(--slate); margin-top: 22px; margin-bottom: 0; }
+
+  /* ── REVEAL (subtle, staggered) ───────────────────────────── */
+  #tly-programs .tlp-reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.8s cubic-bezier(.2,.7,.2,1), transform 0.8s cubic-bezier(.2,.7,.2,1); }
+  #tly-programs .tlp-reveal.tlp-is-visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    #tly-programs .tlp-feature { grid-template-columns: 1fr; gap: 40px; }
+    #tly-programs .tlp-feature__body { padding: 0; }
+    #tly-programs .tlp-quote-grid, #tly-programs .tlp-format-grid, #tly-programs .tlp-stat-grid { grid-template-columns: 1fr; }
+    #tly-programs .tlp-stat-cell { border-left: none; border-top: 1px solid var(--line); padding: 30px 0 0; }
+    #tly-programs .tlp-stat-cell:first-child { border-top: none; padding-top: 0; }
+    #tly-programs .tlp-section--split .tlp-container { grid-template-columns: 1fr; gap: 32px; }
+    #tly-programs .tlp-section--split .tlp-section-head { max-width: 640px; margin-bottom: 8px; }
+    #tly-programs .tlp-section--split .tlp-topic-note { grid-column: auto; }
+  }
+  @media (max-width: 768px) {
+    #tly-programs .tlp-container { padding: 0 26px; }
+    #tly-programs .tlp-hero__inner { padding: 0 26px 60px; }
+    #tly-programs .tlp-hero { min-height: 74vh; }
+    #tly-programs .tlp-section { padding: 72px 0; }
+    #tly-programs .tlp-section--tight { padding: 52px 0; }
+    #tly-programs .tlp-become-list, #tly-programs .tlp-topic-grid, #tly-programs .tlp-steps,
+    #tly-programs .tlp-plan-list, #tly-programs .tlp-quote-grid, #tly-programs .tlp-format-grid { grid-template-columns: 1fr; gap: 0; }
+    #tly-programs .tlp-become-item { padding: 28px 0; }
+    #tly-programs .tlp-quote-card, #tly-programs .tlp-format-card { padding-top: 26px; margin-top: 4px; }
+    #tly-programs .tlp-step-card, #tly-programs .tlp-step-card + .tlp-step-card { padding: 0; border-left: none; }
+    #tly-programs .tlp-step-card + .tlp-step-card { border-top: 1px solid var(--line); padding-top: 36px; margin-top: 36px; }
+    #tly-programs .tlp-plan-item { padding: 18px 0; }
+    #tly-programs .tlp-cta { padding: 68px 26px; }
+    #tly-programs .tlp-row { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
+    #tly-programs .tlp-feature__aside { padding: 40px 30px; }
+  }
+
+  /* ── TESTIMONIALS (featured lead + supporting pair) ───────── */
+  #tly-programs .tlp-testi-lead { max-width: 900px; margin-bottom: 56px; }
+  #tly-programs .tlp-testi-lead blockquote { font-family: var(--serif); font-weight: 500; font-size: var(--fs-title); line-height: 1.5; letter-spacing: -0.01em; color: var(--forest); }
+  #tly-programs .tlp-testi-lead figcaption { margin-top: 34px; font-size: var(--fs-small); letter-spacing: 0.09em; text-transform: uppercase; color: var(--slate); }
+  #tly-programs .tlp-testi-lead figcaption strong { color: var(--forest); font-weight: 600; }
+  #tly-programs .tlp-testi-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding-top: 46px; border-top: 1px solid var(--line); }
+  #tly-programs .tlp-testi { display: flex; flex-direction: column; }
+  #tly-programs .tlp-testi blockquote { font-family: var(--serif); font-size: var(--fs-body); line-height: 1.5; letter-spacing: -0.01em; color: var(--forest); margin-bottom: 24px; flex: 1; }
+  #tly-programs .tlp-testi figcaption { font-size: var(--fs-small); letter-spacing: 0.09em; text-transform: uppercase; color: var(--slate); line-height: 1.5; }
+  #tly-programs .tlp-testi figcaption strong { display: block; color: var(--forest); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 2px; }
+
+  /* ── STATEMENT (full-bleed forest moment) ─────────────────── */
+  #tly-programs .tlp-statement { background: var(--forest); padding: 112px 48px; }
+  #tly-programs .tlp-statement p { font-family: var(--serif); font-weight: 500; color: var(--parchment); font-size: var(--fs-heading); line-height: 1.26; letter-spacing: -0.02em; max-width: 900px; }
+
+  @media (max-width: 768px) {
+    #tly-programs .tlp-testi-pair { grid-template-columns: 1fr; gap: 0; }
+    #tly-programs .tlp-testi + .tlp-testi { border-top: 1px solid var(--line); padding-top: 32px; margin-top: 32px; }
+    #tly-programs .tlp-statement { padding: 72px 26px; }
+  }
+</style>
+
+<div id="tly-programs">
+
+  <!-- ════════ HERO · THE THOUGHTLY LAB ════════ -->
+  <section class="tlp-hero" id="tly-lab">
+    <div class="tlp-hero__img">
+      <img src="https://github.com/RyanRizzoGithub/thoughtly-assets/blob/main/images/ASCE/430-ThoughtlyASCE-539_websize.jpg?raw=true" alt="A Thoughtly Lab cohort in session" style="object-position: center 42%;" />
+    </div>
+    <div class="tlp-hero__inner">
+      <span class="tlp-eyebrow tlp-hero__eyebrow">Program 02 · The Thoughtly Lab</span>
+      <h1>The problem was never effort. It was the model.</h1>
+    </div>
+  </section>
+
+  <section class="tlp-section">
+    <div class="tlp-container">
+      <div class="tlp-prose tlp-reveal">
+        <p class="tlp-lede" style="margin-bottom:1.75rem;">You know something needs to change. You just are not sure what.</p>
+        <p>Maybe you are carrying more than your share in your relationships, your work, or your own life. Maybe you have tried to shift things before and the same patterns keep showing up. Maybe you are successful by every measure but something still feels off and you cannot quite name it.</p>
+        <p>And the worst part is you have been here before. You have read the books, done the work, had the breakthroughs, and somehow ended up right back in the same place. That is not a willpower problem. That is a model problem.</p>
+        <p>The Thoughtly Lab gives you the model. And the process. And the people. And the proof that you are actually changing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlp-section--tight">
+    <div class="tlp-container">
+      <div class="tlp-section-head tlp-reveal">
+        <span class="tlp-eyebrow">What Makes This Different</span>
+        <h3>You will not just feel like you are growing. You will be able to see it.</h3>
+      </div>
+      <div class="tlp-feature tlp-reveal">
+        <div class="tlp-feature__body">
+          <p>Every Lab member begins and ends the program with the ACE Assessment, a 138 question diagnostic developed in partnership with Harvard Medical School. Your first assessment becomes your baseline. Your final assessment shows you exactly what has shifted.</p>
+          <p>Your growth is not something you have to take on faith. It is something you can measure.</p>
+          <p style="color:var(--forest);font-style:italic;font-family:var(--serif);">Nobody else is doing this. And it changes everything about how you show up to the work.</p>
+        </div>
+        <div class="tlp-feature__aside">
+          <span class="tlp-feature__badge">The ACE Assessment</span>
+          <div class="tlp-feature__stat">138</div>
+          <div class="tlp-feature__stat-label">questions · about 20 minutes</div>
+          <div class="tlp-feature__rule"></div>
+          <p class="tlp-feature__note">Developed in partnership with Harvard Medical School. Taken at the start as your baseline, and again at the end to show exactly what changed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlp-section tlp-section--sand">
+    <div class="tlp-container">
+      <div class="tlp-section-head tlp-reveal">
+        <span class="tlp-eyebrow">Who You Will Become</span>
+        <h3>The Lab does not just teach you things. It changes who you are.</h3>
+      </div>
+      <div class="tlp-become-list tlp-reveal">
+        <div class="tlp-become-item"><span class="tlp-become-item__mark">i</span><p>Someone who can <strong>see themselves clearly</strong> in any relationship, any situation, any moment of pressure, and know exactly where they are and what they need to do next.</p></div>
+        <div class="tlp-become-item"><span class="tlp-become-item__mark">ii</span><p>Someone who <strong>does not get stuck in the same place twice.</strong> Who can identify what is actually happening, define which direction to move, run real experiments, and adapt on the fly based on what they learn.</p></div>
+        <div class="tlp-become-item"><span class="tlp-become-item__mark">iii</span><p>Someone who can generate a genuine <strong>All In Partnership</strong> with another person, not by accident, not occasionally, but consistently and on purpose.</p></div>
+        <div class="tlp-become-item"><span class="tlp-become-item__mark">iv</span><p>Someone who <strong>knows how far they have come</strong> because they have the data to prove it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlp-section">
+    <div class="tlp-container">
+      <div class="tlp-section-head tlp-reveal">
+        <span class="tlp-eyebrow">What You Will Experience</span>
+        <h3>Every element of the Lab is designed to make the work stick.</h3>
+      </div>
+      <div class="tlp-rows tlp-reveal">
+        <div class="tlp-row"><span class="tlp-row__num">01</span><div><h4 class="tlp-row__title">A monthly cohort</h4><p class="tlp-row__body">Every month you will sit with a cohort of people doing the same honest work, and leave each session with something real you can use before the next call. The sessions are 90 minutes of structured practice, live experimentation, and honest reflection.</p></div></div>
+        <div class="tlp-row"><span class="tlp-row__num">02</span><div><h4 class="tlp-row__title">Real application between sessions</h4><p class="tlp-row__body">Between sessions you will take what you learned and put it directly into your life. Not homework. Real application in real relationships with real stakes.</p></div></div>
+        <div class="tlp-row"><span class="tlp-row__num">03</span><div><h4 class="tlp-row__title">Office hours with Allison</h4><p class="tlp-row__body">When something comes up between sessions, and it will, office hours with Allison give you the support to work through it before it becomes a pattern again.</p></div></div>
+        <div class="tlp-row"><span class="tlp-row__num">04</span><div><h4 class="tlp-row__title">Thoughtly AI <span class="tlp-soon">Coming Soon</span></h4><p class="tlp-row__body">Thoughtly AI will give you on demand practice and guidance whenever you need it, available in the moments that matter most.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlp-section">
+    <div class="tlp-container">
+      <div class="tlp-section-head tlp-reveal" style="margin-bottom:32px;">
+        <span class="tlp-eyebrow">Who the Lab Is For</span>
+        <h3>You do not have to have it all figured out to begin. You just have to be willing.</h3>
+      </div>
+      <div class="tlp-prose tlp-reveal">
+        <p>The Lab is for the person who is stuck and ready to move. For the person who is already successful but knows something important is missing. For the person navigating a transition and looking for a way through that is grounded in something real, not just another framework that fades in six weeks.</p>
+        <p>You do not need a title. You do not need a certain level of experience. You need to be willing to do honest work on yourself and trust the process long enough to let it change you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tlp-section tlp-section--mist">
+    <div class="tlp-container">
+      <div class="tlp-section-head tlp-reveal">
+        <span class="tlp-eyebrow">How to Get Started</span>
+        <h3>Two steps. That is it.</h3>
+      </div>
+      <div class="tlp-steps tlp-reveal">
+        <div class="tlp-step-card">
+          <span class="tlp-step-card__step">Step 1</span>
+          <h4>Schedule Your ACE Review Call</h4>
+          <p>Book a complimentary one hour call with Allison. This is where you will receive and review your ACE Assessment results together, in the right context, with the support to understand exactly what they mean and where they point.</p>
+          <p>Come curious. Come with questions. There is no pitch at the end. Just an honest conversation about what your results reveal and what is possible from here.</p>
+          <a href="https://www.bethoughtly.com/ace" class="tlp-btn">Schedule Your Call →</a>
+          <p class="tlp-step-card__meta">Every month you wait is another month operating without a map.</p>
+        </div>
+        <div class="tlp-step-card">
+          <span class="tlp-step-card__step">Step 2</span>
+          <h4>Take the ACE Assessment</h4>
+          <p>Once your call is booked, take the ACE Assessment. It is 138 questions and takes about 20 minutes.</p>
+          <p>Your results will be ready and waiting when you and Allison connect.</p>
+          <a href="https://ace.bethoughtly.com/assessment.html" class="tlp-btn">Take the ACE Assessment →</a>
+          <p class="tlp-step-card__meta">138 questions · about 20 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  (function () {
+    var root = document.getElementById('tly-programs');
+    if (!root) return;
+
+    /* Reveal image placeholders only until a real image loads */
+    root.querySelectorAll('.tlp-media__img').forEach(function (img) {
+      function mark() { if (img.naturalWidth > 0) { var f = img.closest('.tlp-media'); if (f) f.classList.add('tlp-has-img'); } }
+      if (img.complete) mark();
+      img.addEventListener('load', mark);
+    });
+
+    /* Smooth-scroll the in-page program anchors (scoped, no global CSS) */
+    root.querySelectorAll('a[href^="#tly-"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var target = document.getElementById(this.getAttribute('href').slice(1));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    /* Scroll reveal */
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('tlp-is-visible'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12 });
+      root.querySelectorAll('.tlp-reveal').forEach(function (el) { io.observe(el); });
+    } else {
+      root.querySelectorAll('.tlp-reveal').forEach(function (el) { el.classList.add('tlp-is-visible'); });
+    }
+  })();
+</script>
